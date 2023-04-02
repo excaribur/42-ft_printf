@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jphonyia <jphonyia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/01 12:56:21 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:31:56 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	ft_printf(const char *data, ...)
 {
-	va_list args;
+	size_t	lenght;
+	va_list	args;
+
 	va_start(args, data);
-	print(args, )
+	print(args, data);
 	va_end(args);
-	return (0);
+	return (lenght);
 }
