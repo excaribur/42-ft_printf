@@ -6,7 +6,7 @@
 # include <stdarg.h>
 
 int AddNumbers(int n, ...);
-int tryPrint(char *data, ...);
+void my_printf(char *format, ...);
 int	ft_printf(const char *data, ...);
 
 #endif

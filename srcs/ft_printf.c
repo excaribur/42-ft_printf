@@ -14,8 +14,9 @@
 
 int	ft_printf(const char *data, ...)
 {
-//	int	a;
-//
-//	a = 0;
+	va_list args;
+	va_start(args, data);
+	print(args, )
+	va_end(args);
 	return (0);
 }

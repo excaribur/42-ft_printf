@@ -10,7 +10,7 @@ int main()
 	int num = 10;
 	printf("hello welcome: %d", num);
 	printf("\n");
-	tryPrint("hello welcome: %d", num);
+	my_printf("hello welcome: %d", num);
 
 	return 0;
 }
