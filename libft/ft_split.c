@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:21:06 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/22 15:17:49 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:12:50 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+* @Desc: to split a string into a series of tokens based on
+* a particular delimiter.
+* A token is a substring extracted from the original string.
+*
+* @Params:
+* @Return:
+*/
 size_t	len_arr(char const *s, char c)
 {
 	size_t	subarr;

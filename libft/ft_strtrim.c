@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:11:23 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/20 15:19:32 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:54:47 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+* @func: to all whitespace characters
+*		from the beginning and the end of a string.
+*
+* @params:
+* @return:
+*/
 int	isset(char const c, char const *set)
 {
 	while (*set)
@@ -28,7 +35,7 @@ size_t	movefont(char const *str, char const *set)
 		return (0);
 	i = 0;
 	while (str[i])
-	{	
+	{
 		if (isset(str[i], set))
 			i++;
 		else
@@ -47,7 +54,7 @@ size_t	moveback(char const *str, char const *set)
 		return (0);
 	i = len - 1;
 	while (i > 0)
-	{	
+	{
 		if (isset(str[i], set))
 			i--;
 		else

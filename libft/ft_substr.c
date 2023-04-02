@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:57:09 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/28 17:22:50 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:49:43 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+* @func: to generate a substring of size len starting from the start position.
+* @params:
+* @return:
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;

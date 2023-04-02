@@ -2,3 +2,7 @@
 .settings
 .project
 .cproject
+srcs/*.out
+srcs/a.out.dSYM
+srcs/main.dSYM
+.vscode

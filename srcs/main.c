@@ -1,16 +1,14 @@
-// Driver Code
+// #include "libftprintf.h"
+#include <stdio.h>
 
-#include "libftprintf.h"
-
-int main()
+int	main()
 {
-	printf("\n 3 + 4 + 5 = %d ", AddNumbers(3, 3, 4, 5));
+	int num;
+
+	num = 10;
+	printf("hello welcome: %c", NULL);
 	printf("\n");
-	printf("====================\n");
-	int num = 10;
-	printf("hello welcome: %d", num);
-	printf("\n");
-	my_printf("hello welcome: %d", num);
+	// my_printf("hello welcome: %d", num);
 
 	return 0;
 }
