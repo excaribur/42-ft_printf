@@ -6,16 +6,16 @@
 /*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:57:09 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/02 16:49:43 by <your usern      ###   ########.fr       */
+/*   Updated: 2023/04/02 20:28:49 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-* @func: to generate a substring of size len starting from the start position.
-* @params:
-* @return:
+* @Desc: to generate a substring of size len starting from the start position.
+* @Params: String s, start location, specific length
+* @Return: a Substring
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:06:02 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/25 18:10:44 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:56:03 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/***   count the length for malloc a string   ***/
 size_t	len_number(int n)
 {
 	size_t	count;
@@ -25,10 +26,11 @@ size_t	len_number(int n)
 	{
 		n = n / 10;
 		count ++;
-	}	
+	}
 	return (count);
 }
 
+/***   logic for positive number   ***/
 char	*ft_positive(char *ptr, int n)
 {
 	*ptr = '\0';
@@ -40,6 +42,7 @@ char	*ft_positive(char *ptr, int n)
 	return (ptr);
 }
 
+/***   logic for negative number   ***/
 char	*ft_negative(char *ptr, int n)
 {
 	*ptr = '\0';
@@ -52,6 +55,7 @@ char	*ft_negative(char *ptr, int n)
 	return (ptr);
 }
 
+/***   if ZERO passed in parameter   ***/
 char	*ft_o(char *ptr, size_t n)
 {
 	char	*temp;
@@ -65,6 +69,11 @@ char	*ft_o(char *ptr, size_t n)
 	return (temp);
 }
 
+/*
+* @Desc: to generate string from interger number
+* @Params: interger
+* @Return: a String
+*/
 char	*ft_itoa(int n)
 {
 	char	*ptr;

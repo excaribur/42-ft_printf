@@ -3,15 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:18:39 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/03/01 02:51:28 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:38:17 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+* @Desc: The strnstr function locates the first occurrence
+* of the null-terminated string little(needle) in the string big(haystack),
+* where not more than len characters are searched.
+* Characters that appear after a \0 character are not searched.
+*
+* @Params: big string, little string, specific lenght
+* @Return: If needle is an empty string, haystack is returned;
+* if needle occurs nowhere in haystack, NULL is returned;
+* otherwise a pointer to the first character of the first occurrence
+* of needle is returned.
+*/
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	len_need;

@@ -6,7 +6,7 @@
 /*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:03:46 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/02 17:07:39 by <your usern      ###   ########.fr       */
+/*   Updated: 2023/04/02 20:57:18 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 * @Desc: to searches for the last occurrence of the character c
 * in a string and then return the pointer; otherwise, it returns a null pointer.
 *
-* @Params:
-* @Return:
+* @Params: string , character to find in
+* @Return: substring start at last character c
 */
 char	*ft_strrchr(const char *s, int c)
 {

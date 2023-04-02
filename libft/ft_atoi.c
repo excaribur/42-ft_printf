@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:41:09 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/25 23:44:12 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:06:41 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ char	*remove_whitespace(const char *str)
 	return (NULL);
 }
 
+/*
+* @Desc: to generate an int from string
+* @Params: string
+* @Return: integer
+*/
 int	ft_atoi(const char *str)
 {
 	int	neg;
@@ -39,7 +44,7 @@ int	ft_atoi(const char *str)
 	{
 		neg = -1;
 		str++;
-	}	
+	}
 	while (*str && ft_isdigit(*str))
 	{
 		result = result * 10 + (neg * (*str - '0'));

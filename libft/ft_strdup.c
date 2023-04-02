@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jphonyia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:54:55 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/02/19 23:56:19 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:12:40 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+* @Desc: to copy a string with malloc
+* @Params: string s
+* @Return: a copy string
+*/
 char	*ft_strdup(const char *s1)
 {
 	size_t	len;

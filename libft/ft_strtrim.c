@@ -6,18 +6,15 @@
 /*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:11:23 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/02 16:54:47 by <your usern      ###   ########.fr       */
+/*   Updated: 2023/04/02 20:25:32 by <your usern      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-* @func: to all whitespace characters
-*		from the beginning and the end of a string.
-*
-* @params:
-* @return:
+* Ensure that character of string is in set or not
+* if it in set, then move pointing location
 */
 int	isset(char const c, char const *set)
 {
@@ -27,6 +24,7 @@ int	isset(char const c, char const *set)
 	return (0);
 }
 
+/***  to Trim trailing  ***/
 size_t	movefont(char const *str, char const *set)
 {
 	size_t	i;
@@ -44,6 +42,7 @@ size_t	movefont(char const *str, char const *set)
 	return (i);
 }
 
+/***  to Trim heading  ***/
 size_t	moveback(char const *str, char const *set)
 {
 	size_t	i;
@@ -63,6 +62,15 @@ size_t	moveback(char const *str, char const *set)
 	return (i);
 }
 
+/*
+* @Desc: to trim set of characters from the heading and trailing of a string.
+* - think like 2 pointers point at heading and trailing string
+* - move those pointers if they are the same in the set parameter
+*
+*
+* @Params: string s and set of character for triming
+* @Return: string atfer trimming
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	init;
