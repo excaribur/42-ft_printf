@@ -11,7 +11,7 @@ this function will mimic the original printf()
 	- flags -Wall, -Wextra, -Werror, cc
 	- not relink = ????
 	- rules $(NAME), all, clean, fclean and re.
-	- If use use libft compile its Makefile first priority.	
+	- If use use libft compile its Makefile first priority.
 - Only work in git repository
 - Stop suddenly, if any error happens during Eval.
 
@@ -19,7 +19,7 @@ this function will mimic the original printf()
  - Name: libftprintf.a
  - External functs: malloc, free, write, va_start, va_arg, va_copy, va_end (variadic functions)
  - Description : Write a library that contains ft_printf(), a
- 
+
 ### function that will mimic the original printf()
 - prototype: int ft_printf(const char *, ...);
 

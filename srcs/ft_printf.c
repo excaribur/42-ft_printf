@@ -3,50 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: <your username> <your@email.com>           +#+  +:+       +#+        */
+/*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/02 17:43:13 by <your usern      ###   ########.fr       */
+/*   Updated: 2023/04/23 12:55:35 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include "libft.h"
 
+int	to_print(va_list ptr, char *data);
+
+/*
+* @Desc: to initialize variadict funtion and invoke to_print
+* @Params: *data = String data will print out including with cspduxIX%
+* @Params: varia args : ...
+* @Return: lenght = the lenght of print out
+*/
 int	ft_printf(const char *data, ...)
 {
 	size_t	lenght;
-	va_list	args;
+	va_list	ptr;
 
-	va_start(args, data);
-	lenght = to_print(args, data);
-	va_end(args);
+	va_start(ptr, data);
+	lenght = to_print(ptr, (char *)data);
+	va_end(ptr);
 	return (lenght);
 }
 
 /*
-* @Desc: to prepare string and each types in va_list args to string only
+* @Desc: to prepare string and each types in va_list ptr to string only
 * @Params:
 * @Return:
 */
-static char	*to_prepare_str(va_list args, size_t *length, char *str, char *data)
+char	*to_prepare_str(va_list ptr, size_t *length, char *str)
 {
-	char	*temp;
+	char	*buffer;
+	char	*str_con;
 
-	str = data;
-	while (data != NULL)
+	buffer = NULL;
+	str_con = NULL;
+	while (*str != '\0')
 	{
-		if (*data == '%')
+		if (*str == '%')
 		{
-			// temp = to_convers(args, )
-			// *lenght = *length + ??;
+			str_con = conversion(ptr, *(++str));
 		}
 		else
-		{
-			*str = *data++;
-			*length += 1;
-		}
+	 		str_con = to_str(*str);
+		str++;
+		buffer = make_buffer(buffer, str_con);
 	}
-	return (str);
+	*length = ft_strlen(buffer);
+	return (buffer);
 }
 
 /*
@@ -54,12 +64,15 @@ static char	*to_prepare_str(va_list args, size_t *length, char *str, char *data)
 * @Params:
 * @Return:
 */
-static int	to_print(va_list args, char *data)
+int	to_print(va_list ptr, char *data)
 {
 	size_t	length;
 	char	*str;
 
-	str = to_prepare_str(args, &length, str, data);
-	write (1, str, length);
+	str = NULL;
+	length = 0;
+	str = to_prepare_str(ptr, &length, data);
+	ft_putstr_fd(str, 1);
+	free(str);
 	return (length);
 }
