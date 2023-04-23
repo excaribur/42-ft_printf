@@ -13,3 +13,6 @@ includes/.DS_Store
 /main.dSYM/
 srcs/.DS_Store
 main
+*.out
+exampleVariadic/*.out
+exampleVariadic/*.dSYM
