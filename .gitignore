@@ -10,7 +10,7 @@ srcs/main.dSYM
 /build/
 libft/*.o
 includes/.DS_Store
-/main.dSYM/
+/*.dSYM
 srcs/.DS_Store
 main
 *.out
