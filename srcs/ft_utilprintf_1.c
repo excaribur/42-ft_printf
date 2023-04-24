@@ -6,11 +6,11 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/23 12:56:08 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/24 22:50:04 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 /*
@@ -18,48 +18,43 @@
 * @Params:
 * @Return:
 */
-char	*conversion(va_list ptr, char c)
+int	conversion(va_list ptr, char c)
 {
-	char	*str;
+	size_t	lenght;
 
-	str = NULL;
+	lenght = 0;
 	if (c == 'c')
-		str = get_char(ptr);
+		lenght = get_char(ptr);
 	else if (c == 's')
-		str = get_str(ptr);
-	else if (c == 'p')
-		str = get_ptr(ptr);
+		lenght = get_str(ptr);
+	// else if (c == 'p')
+	// 	lenght = get_ptr(ptr);
 	else if (c == 'd')
-		str = get_dec(ptr);
+		lenght = get_dec(ptr);
 	else if (c == 'i')
-		str = get_int(ptr);
+		lenght = get_int(ptr);
 	else if (c == 'u')
-		str = get_unsigned_dec(ptr);
-	else if (c == 'x')
-		str = get_hex(ptr, 0);
-	else if (c == 'X')
-		str = get_hex(ptr, 1);
+		lenght = get_unsigned_dec(ptr);
+	// else if (c == 'x')
+	// 	lenght = get_hex(ptr, 0);
+	// else if (c == 'X')
+	// 	lenght = get_hex(ptr, 1);
 	else if (c == '%')
-		str = get_percent(ptr);
-	return (str);
+		lenght = get_percent();
+	return (lenght);
 }
 
 char	*to_str(char c)
 {
 	char	*str;
-	char	*ptr;
 	size_t	len_char_nul;
 
 	len_char_nul = 2;
-	str = (char *)malloc(sizeof(char) * len_char_nul);
-
+	str = (char *)ft_calloc(len_char_nul, sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	ptr = str;
-	*str = c;
-	str++;
-	*str = '\0';
-	return (ptr);
+	str[0] = c;
+	return (str);
 }
 
 char	*make_buffer(char *buffer, char *str_con)

@@ -6,11 +6,11 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/23 12:55:35 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/24 22:12:34 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 int	to_print(va_list ptr, char *data);
@@ -25,10 +25,14 @@ int	ft_printf(const char *data, ...)
 {
 	size_t	lenght;
 	va_list	ptr;
+	const char	*str;
 
+	str = ft_strdup(data);
 	va_start(ptr, data);
-	lenght = to_print(ptr, (char *)data);
+	lenght = to_print(ptr, (char *)str);
 	va_end(ptr);
+	if (str)
+		free((char *)str);
 	return (lenght);
 }
 
@@ -37,42 +41,22 @@ int	ft_printf(const char *data, ...)
 * @Params:
 * @Return:
 */
-char	*to_prepare_str(va_list ptr, size_t *length, char *str)
+int	to_print(va_list ptr, char *str)
 {
-	char	*buffer;
-	char	*str_con;
+	size_t	length;
 
-	buffer = NULL;
-	str_con = NULL;
+	length = 0;
 	while (*str != '\0')
 	{
 		if (*str == '%')
 		{
-			str_con = conversion(ptr, *(++str));
+			str++;
+			length += conversion(ptr, *str);
 		}
 		else
-	 		str_con = to_str(*str);
+	 		length += ft_putchar(*str);
 		str++;
-		buffer = make_buffer(buffer, str_con);
 	}
-	*length = ft_strlen(buffer);
-	return (buffer);
-}
-
-/*
-* @Desc: to write the string to screen
-* @Params:
-* @Return:
-*/
-int	to_print(va_list ptr, char *data)
-{
-	size_t	length;
-	char	*str;
-
-	str = NULL;
-	length = 0;
-	str = to_prepare_str(ptr, &length, data);
-	ft_putstr_fd(str, 1);
-	free(str);
 	return (length);
 }
+

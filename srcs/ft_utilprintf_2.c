@@ -6,11 +6,11 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/23 12:54:10 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/24 22:49:49 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 /*
@@ -18,12 +18,15 @@
 * @Params:
 * @Return:
 */
-char	*get_char(va_list ptr)
+int	get_char(va_list ptr)
 {
 	char	c;
+	size_t 	lenght;
 
+	lenght = 0;
 	c = va_arg(ptr, int);
-	return (to_str(c));
+	lenght = ft_putchar(c);
+	return (lenght);
 }
 
 /*
@@ -31,12 +34,17 @@ char	*get_char(va_list ptr)
 * @Params:
 * @Return:
 */
-char	*get_str(va_list ptr)
+int get_str(va_list ptr)
 {
 	char *str;
+	size_t lenght;
 
-	str = ft_strdup(va_arg(ptr, char *));
-	return (str);
+	lenght = 0;
+	str = va_arg(ptr, char *);
+	if (str == NULL)
+		str = S_NULL;
+	lenght = ft_putstr(str);
+	return (lenght);
 }
 
 /*
@@ -56,10 +64,17 @@ char	*get_ptr(va_list ptr)
 * @Params:
 * @Return:
 */
-char	*get_dec(va_list ptr)
+int get_dec(va_list ptr)
 {
 	int		dec;
+	size_t	lenght;
+	char	*str;
 
+	lenght = 0;
 	dec = va_arg(ptr, int);
-	return(ft_itoa(dec));
+	str = ft_itoa(dec);
+	lenght = ft_putstr(str);
+	if (str)
+		free(str);
+	return(lenght);
 }
