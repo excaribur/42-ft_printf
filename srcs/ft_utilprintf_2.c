@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/24 22:49:49 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/27 22:36:32 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,33 @@ int get_str(va_list ptr)
 * @Params:
 * @Return:
 */
-char	*get_ptr(va_list ptr)
+int	get_ptr(va_list ptr)
 {
-	va_arg(ptr, int);
-	return (NULL);
+	size_t				length;
+	char				*str;
+	int					base;
+	unsigned long long	address;
+
+	address = va_arg(ptr, unsigned long long);
+	str = NULL;
+	base = 16;
+	length = 0;
+	str = ft_strdup(FORM_MEMORY);
+	length += ft_putstr(str);
+	if (str)
+		free(str);
+	if (address == 0)
+	{
+		str = ft_strdup("0");
+		length += ft_putstr(str);
+		if (str)
+			free(str);
+	}
+	str = make_hex(address, base, str);
+	length += ft_putstr(str);
+	if (str)
+		free(str);
+	return (length);
 }
 
 /*
@@ -64,7 +87,7 @@ char	*get_ptr(va_list ptr)
 * @Params:
 * @Return:
 */
-int get_dec(va_list ptr)
+int	get_dec(va_list ptr)
 {
 	int		dec;
 	size_t	lenght;

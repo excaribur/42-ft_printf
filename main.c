@@ -62,6 +62,33 @@ int	main()
 	// int b=0xFAFA;
 	// printf("value of a: %X [%x]\n",a,a);
 	// printf("value of b: %X [%x]\n",b,b);
+	ft_putstr_fd("\n TEST conversion %x : ", 1);
+	returnfunc = ft_printf("hex is %x and %x", 0xFAFA, __LONG_MAX__);
+	ft_putstr_fd("\nlength : ", 1);
+	ft_putnbr_fd(returnfunc, 1);
+	printf("\n___________________________\n");
+	l = printf("hex is %x and %lx", 0xFAFA, __LONG_MAX__);
+	printf("\nprintf l: %i\n",l);
+	ft_putstr_fd("\n", 1);
+
+
+	ft_putstr_fd("\n TEST conversion %X : ", 1);
+	returnfunc = ft_printf("HEX is %X and %X", 999, 3735929054u);
+	ft_putstr_fd("\nlength : ", 1);
+	ft_putnbr_fd(returnfunc, 1);
+	printf("\n___________________________\n");
+	l = printf("HEX is %X and %X", 999, 3735929054u);
+	printf("\nprintf l: %i\n",l);
+	ft_putstr_fd("\n", 1);
+
+	ft_putstr_fd("\n TEST conversion %p : \n", 1);
+	returnfunc = ft_printf("address of l is %p\n", &l);
+	ft_putstr_fd("\nlength : ", 1);
+	ft_putnbr_fd(returnfunc, 1);
+	printf("\n___________________________\n");
+	l = printf("address of l is %p\n", &l);
+	printf("\nprintf l: %i\n",l);
+	ft_putstr_fd("\n", 1);
 
 	ft_putstr_fd("\n==== DONE MAIN() ==\n", 1);
 
