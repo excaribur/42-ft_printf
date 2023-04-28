@@ -12,7 +12,6 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 SRCS =	ft_printf.c \
 		ft_utilprintf_1.c\
 		ft_utilprintf_2.c\
-		ft_utilprintf_3.c\
 		ft_unsigned_tostr.c\
 		ft_helper_1.c
 

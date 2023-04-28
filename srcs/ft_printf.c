@@ -6,19 +6,17 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/27 22:55:04 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:28:49 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	to_print(va_list ptr, char *data);
-
 /*
 * @Desc: To initialize variadict funtion and invoke function to_print
 * @Params: *data = String data will print, including with cspduxIX%
-* @Params: varia args = ...
+* @Params: variadic argument = ...
 * @Return: lenght = the lenght of print out
 */
 int	ft_printf(const char *data, ...)
@@ -38,7 +36,7 @@ int	ft_printf(const char *data, ...)
 
 /*
 * @Desc: To print string and to converse varia arg
-* @Params:	ptr = list of the varia args
+* @Params:	ptr = list of the variadic argument
 *			str = string data from ft_print
 * @Return:	length = lenght of string
 */

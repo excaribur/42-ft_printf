@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/27 22:49:46 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:29:51 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 /*
 * @Desc: To print a character
-* @Params: c = character
-* @Return: 1 = length
+* @Params: c = Character
+* @Return: 1 = Length of printed character
 */
 int	ft_putchar(char c)
 {
@@ -27,7 +27,7 @@ int	ft_putchar(char c)
 /*
 * @Desc: To print a String
 * @Params: str = String
-* @Return: length = Length of String
+* @Return: length = Length of printed String
 */
 int	ft_putstr(char *str)
 {
@@ -61,9 +61,9 @@ size_t	find_digit(unsigned long long nbr, int base)
 }
 
 /*
-* @Desc: to
-* @Params:	nbr = Number
-*			str =
+* @Desc: To input hex number to an allocated String
+* @Params:	nbr = Decimal mumber
+*			str = Allocated String
 *			length = Length of string
 *			base = Base of number (16)
 * @Return: str = String of hexadecimal

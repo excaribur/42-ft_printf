@@ -6,29 +6,51 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:06:02 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/23 19:19:12 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:29:50 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-/***   count the length for malloc a string   ***/
-size_t	len_num(unsigned int n)
+/*
+* @Desc: To allocate string from unsigned interger number
+* @Params: n = Number
+* @Return:  String of number
+*/
+char	*ft_unsigned_tostr(unsigned int n)
 {
-	size_t	count;
+	char	*ptr;
+	size_t	len;
+	int		i;
+	int		base;
 
-	count = 0;
+	base = 10;
+	len = find_digit(n, 10);
+	ptr = (char *)ft_calloc(len + 1, sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
 	if (n == 0)
-		return (1);
+	{
+		ptr[0] = '0';
+		return (ptr);
+	}
+	i = 0;
+	ptr[0] = '\0';
 	while (n > 0)
 	{
+		ptr[++i] = '0' + n % 10;
 		n = n / 10;
-		count ++;
 	}
-	return (count);
+	return (ft_reverse_str(ptr, len));
 }
 
+/*
+* @Desc: To reverse String
+* @Params:	ptr = String
+* 			len = Length of String
+* @Return:  String of number
+*/
 char *ft_reverse_str(char *ptr, size_t len)
 {
 	int		left;
@@ -50,34 +72,4 @@ char *ft_reverse_str(char *ptr, size_t len)
 	}
 	free(tmp);
 	return (ptr);
-}
-
-/*
-* @Desc: to generate string from interger number
-* @Params: interger
-* @Return: a String
-*/
-char	*ft_unsigned_tostr(unsigned int n)
-{
-	char	*ptr;
-	size_t	len;
-	int		i;
-
-	len = len_num(n);
-	ptr = (char *)ft_calloc(len + 1, sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	if (n == 0)
-	{
-		ptr[0] = '0';
-		return (ptr);
-	}
-	i = 0;
-	ptr[0] = '\0';
-	while (n > 0)
-	{
-		ptr[++i] = '0' + n % 10;
-		n = n / 10;
-	}
-	return (ft_reverse_str(ptr, len));
 }
