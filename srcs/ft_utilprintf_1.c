@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:28:42 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:49:05 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	conversion(va_list ptr, char c)
 int	get_char(va_list ptr)
 {
 	char	c;
-	size_t 	lenght;
+	size_t	lenght;
 
 	lenght = 0;
 	c = va_arg(ptr, int);
@@ -66,10 +66,10 @@ int	get_char(va_list ptr)
 * @Params: ptr = varia args
 * @Return: lenght = Lenght of printed out string
 */
-int get_str(va_list ptr)
+int	get_str(va_list ptr)
 {
-	char *str;
-	size_t lenght;
+	char	*str;
+	size_t	lenght;
 
 	lenght = 0;
 	str = va_arg(ptr, char *);

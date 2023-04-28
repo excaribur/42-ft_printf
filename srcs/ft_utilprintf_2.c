@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:29:02 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:48:35 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	get_int(va_list ptr)
 		free(str);
 	return (lenght);
 }
+
 /*
 * @Desc: to print out unsigned decimal variadic agrument by conversion
 * @Params: ptr = Variadic argument
@@ -49,7 +50,7 @@ int	get_unsigned_dec(va_list ptr)
 	length = ft_putstr(str);
 	if (str)
 		free(str);
-	return(length);
+	return (length);
 }
 
 /*
@@ -59,17 +60,17 @@ int	get_unsigned_dec(va_list ptr)
 *			*str = A string to allocate
 * @Return: String
 */
-char *make_hex(unsigned long long nbr,int base, char *str)
+char	*make_hex(unsigned long long nbr, int base, char *str)
 {
-	size_t length;
+	size_t	length;
 
 	length = 0;
 	length = find_digit(nbr, base);
-	if (!(str = (char *)malloc((sizeof(char) * length + 1))))
+	str = (char *)malloc(sizeof(char) * length + 1);
+	if (!str)
 		return (0);
 	str[length] = '\0';
 	str = to_str_hex((unsigned long long)nbr, str, length, base);
-
 	return (str);
 }
 
@@ -95,7 +96,7 @@ int	get_hex(va_list ptr, int is_lower)
 		str = ft_strdup("0");
 		length = ft_putstr(str);
 		free(str);
-		return length;
+		return (length);
 	}
 	str = make_hex(nbr, base, str);
 	if (!is_lower)

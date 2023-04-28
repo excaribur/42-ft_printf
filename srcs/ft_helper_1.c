@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:29:51 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:50:04 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ size_t	find_digit(unsigned long long nbr, int base)
 *			base = Base of number (16)
 * @Return: str = String of hexadecimal
 */
-char *to_str_hex(unsigned long long nbr, char *str, size_t length, int base)
+char	*to_str_hex(unsigned long long nbr, char *str, size_t length, int base)
 {
 	unsigned long long	mod;
+
 	while (nbr > 0)
 	{
 		mod = nbr % base;
@@ -89,12 +90,12 @@ char *to_str_hex(unsigned long long nbr, char *str, size_t length, int base)
 * @Params: str = Lower case string
 * @Return: str = Upper case string
 */
-char *ft_str_to_upper(char *str)
+char	*ft_str_to_upper(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		str[i] = ft_toupper(str[i]);
 		i++;

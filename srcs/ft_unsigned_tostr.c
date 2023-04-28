@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:06:02 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:29:50 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:49:52 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 * @Desc: To allocate string from unsigned interger number
 * @Params: n = Number
-* @Return:  String of number
+* @Return: String of number
 */
 char	*ft_unsigned_tostr(unsigned int n)
 {
@@ -51,7 +51,7 @@ char	*ft_unsigned_tostr(unsigned int n)
 * 			len = Length of String
 * @Return:  String of number
 */
-char *ft_reverse_str(char *ptr, size_t len)
+char	*ft_reverse_str(char *ptr, size_t len)
 {
 	int		left;
 	int		right;
