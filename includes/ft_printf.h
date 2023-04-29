@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 22:33:41 by <your usern       #+#    #+#             */
-/*   Updated: 2023/04/28 22:43:44 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:16:39 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,20 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# define PERCENT '%'
-# define S_NULL "(null)"
-# define FORM_MEMORY "0x"
+# define CHA_C 'c'
+# define CHA_S 's'
+# define CHA_P 'p'
+# define CHA_D 'd'
+# define CHA_P 'p'
+# define CHA_I 'i'
+# define CHA_U 'u'
+# define CHA_X_LOWER 'x'
+# define CHA_X_UPPER 'X'
+# define CHA_PERCENT '%'
+# define STR_NULL "(null)"
+# define STR_FORM_MEMORY "0x"
+# define STR_NULL_FORM_MEMORY "0x0"
+# define STR_ZERO "0"
 
 int		ft_printf(const char *data, ...);
 int		conversion(va_list ptr, char c);
@@ -34,6 +45,9 @@ int		get_hex(va_list ptr, int is_lower);
 int		get_percent(void);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
+int		putstr_null(char *str);
+int		putstr_form_memory(char *str);
+int		putstr_null_form_memory(char *str);
 char	*ft_unsigned_tostr(unsigned int n);
 char	*ft_reverse_str(char *ptr, size_t len);
 char	*to_str_hex(unsigned long long nbr, char *str, size_t lenght, int base);

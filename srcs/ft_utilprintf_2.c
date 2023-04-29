@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:48:35 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:16:43 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ int	get_unsigned_dec(va_list ptr)
 	char			*str;
 
 	length = 0;
+	str = NULL;
 	unsigned_dec = va_arg(ptr, unsigned int);
+	if (unsigned_dec == 0)
+		return (putstr_null(str));
 	str = ft_unsigned_tostr(unsigned_dec);
 	length = ft_putstr(str);
 	if (str)
@@ -65,12 +68,12 @@ char	*make_hex(unsigned long long nbr, int base, char *str)
 	size_t	length;
 
 	length = 0;
-	length = find_digit(nbr, base);
+	length += find_digit(nbr, base);
 	str = (char *)malloc(sizeof(char) * length + 1);
 	if (!str)
 		return (0);
 	str[length] = '\0';
-	str = to_str_hex((unsigned long long)nbr, str, length, base);
+	str = to_str_hex(nbr, str, length, base);
 	return (str);
 }
 
@@ -92,12 +95,7 @@ int	get_hex(va_list ptr, int is_lower)
 	str = NULL;
 	nbr = va_arg(ptr, unsigned int);
 	if (nbr == 0)
-	{
-		str = ft_strdup("0");
-		length = ft_putstr(str);
-		free(str);
-		return (length);
-	}
+		return (putstr_null(str));
 	str = make_hex(nbr, base, str);
 	if (!is_lower)
 		str = ft_str_to_upper(str);
@@ -116,6 +114,6 @@ int	get_percent(void)
 {
 	size_t	length;
 
-	length = ft_putchar(PERCENT);
+	length = ft_putchar(CHA_PERCENT);
 	return (length);
 }

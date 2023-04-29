@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:50:04 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:16:44 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ int	ft_putstr(char *str)
 size_t	find_digit(unsigned long long nbr, int base)
 {
 	size_t	length;
+	char	*str;
 
 	length = 0;
+	str = NULL;
 	while (nbr > 0)
 	{
 		nbr = nbr / base;

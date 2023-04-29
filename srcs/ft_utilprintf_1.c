@@ -6,7 +6,7 @@
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:56:18 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:49:05 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:16:42 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,23 @@ int	conversion(va_list ptr, char c)
 	size_t	lenght;
 
 	lenght = 0;
-	if (c == 'c')
+	if (c == CHA_C)
 		lenght = get_char(ptr);
-	else if (c == 's')
+	else if (c == CHA_S)
 		lenght = get_str(ptr);
-	else if (c == 'p')
+	else if (c == CHA_P)
 		lenght = get_ptr(ptr);
-	else if (c == 'd')
+	else if (c == CHA_D)
 		lenght = get_dec(ptr);
-	else if (c == 'i')
+	else if (c == CHA_I)
 		lenght = get_int(ptr);
-	else if (c == 'u')
+	else if (c == CHA_U)
 		lenght = get_unsigned_dec(ptr);
-	else if (c == 'x')
+	else if (c == CHA_X_LOWER)
 		lenght = get_hex(ptr, 1);
-	else if (c == 'X')
+	else if (c == CHA_X_UPPER)
 		lenght = get_hex(ptr, 0);
-	else if (c == '%')
+	else if (c == CHA_PERCENT)
 		lenght = get_percent();
 	return (lenght);
 }
@@ -74,7 +74,7 @@ int	get_str(va_list ptr)
 	lenght = 0;
 	str = va_arg(ptr, char *);
 	if (str == NULL)
-		str = S_NULL;
+		str = STR_NULL;
 	lenght = ft_putstr(str);
 	return (lenght);
 }
@@ -83,30 +83,27 @@ int	get_str(va_list ptr)
 * @Desc: To get void pointer in variadic argument by conversion  and print it out
 * @Params: ptr = varia args
 * @Return: lenght = Lenght of printed out string
+*
+* This code did't return the same lenght of printf function when ptr = null
+* Becuase (when type cast to int, the function was failed in MIN_LONG)
+*
 */
 int	get_ptr(va_list ptr)
 {
-	size_t				length;
-	char				*str;
-	int					base;
-	unsigned long long	address;
+	size_t	length;
+	char	*str;
+	int		base;
+	void	*address;
 
-	address = va_arg(ptr, unsigned long long);
 	str = NULL;
+	address = NULL;
 	base = 16;
 	length = 0;
-	str = ft_strdup(FORM_MEMORY);
-	length += ft_putstr(str);
-	if (str)
-		free(str);
-	if (address == 0)
-	{
-		str = ft_strdup("0");
-		length += ft_putstr(str);
-		if (str)
-			free(str);
-	}
-	str = make_hex(address, base, str);
+	address = va_arg(ptr, void *);
+	if (!address)
+		return (putstr_null_form_memory(str));
+	length += putstr_form_memory(str);
+	str = make_hex((unsigned long long)address, base, str);
 	length += ft_putstr(str);
 	if (str)
 		free(str);
@@ -126,7 +123,10 @@ int	get_dec(va_list ptr)
 	char	*str;
 
 	lenght = 0;
+	str = NULL;
 	dec = va_arg(ptr, int);
+	if (dec == 0)
+		return (putstr_null(str));
 	str = ft_itoa(dec);
 	lenght = ft_putstr(str);
 	if (str)

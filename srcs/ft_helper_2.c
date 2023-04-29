@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_tostr.c                                :+:      :+:    :+:   */
+/*   ft_helper_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jphonyia <phonyiam.jirayut@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:06:02 by jphonyia          #+#    #+#             */
-/*   Updated: 2023/04/28 22:49:52 by jphonyia         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:16:51 by jphonyia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,55 @@ char	*ft_reverse_str(char *ptr, size_t len)
 	}
 	free(tmp);
 	return (ptr);
+}
+
+/*
+* @Desc: To print "0"
+* @Params:	str = String
+* @Return: Length of printed String
+*/
+int	putstr_null(char *str)
+{
+	int	length;
+
+	length = 0;
+	str = ft_strdup(STR_ZERO);
+	length += ft_putstr(str);
+	if (str)
+		free(str);
+	return (length);
+}
+
+/*
+* @Desc: To print "0x"
+* @Params:	str = String
+* @Return: Length of printed String
+*/
+int	putstr_form_memory(char *str)
+{
+	int	length;
+
+	length = 0;
+	str = ft_strdup(STR_FORM_MEMORY);
+	length += ft_putstr(str);
+	if (str)
+		free(str);
+	return (length);
+}
+
+/*
+* @Desc: To print "0x0"
+* @Params:	str = String
+* @Return: Length of printed String
+*/
+int	putstr_null_form_memory(char *str)
+{
+	int	length;
+
+	length = 0;
+	str = ft_strdup(STR_NULL_FORM_MEMORY);
+	length += ft_putstr(str);
+	if (str)
+		free(str);
+	return (length);
 }
